@@ -1,0 +1,32 @@
+import random
+
+def creat_lst():
+    lst = []
+    random_len = random.randint(10,30)
+    for i in range(random_len):
+        num = random.randint(0,50)
+        lst.append(num)
+    return lst
+
+def my_sort(lst):
+    if len(lst) < 2:
+        return lst
+    random_num = random.choice(lst)
+    smaller_lst = []
+    biggest_lst = []
+    double_lst = []
+    for i in lst:
+        if i < random_num:
+            smaller_lst.append(i)
+        elif i > random_num:
+            biggest_lst.append(i)
+        else:
+            double_lst.append(i)
+    return my_sort(smaller_lst) + double_lst + my_sort(biggest_lst)
+
+
+main_lst = creat_lst()
+
+print(main_lst)
+print()
+print(my_sort(main_lst))
